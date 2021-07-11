@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity RegrasProcedimento.
+    -->
+    <changeSet id="20210710121000-1" author="sschatz">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="regras_procedimento"/>
+            </not>
+        </preConditions>
+        <createTable tableName="regras_procedimento">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nr_idade" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="ds_sexo" type="varchar(1)">
+                <constraints nullable="false" />
+            </column>
+            <column name="ie_permite" type="varchar(1)">
+                <constraints nullable="false" />
+            </column>
+            <column name="procedimento_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+           
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="20210710121000-1-data" author="sschatz" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/regras_procedimento.csv"
+                  separator=";"
+                  tableName="regras_procedimento">
+            <column name="id" type="numeric"/>
+            <column name="nr_idade" type="numeric"/>
+            <column name="ds_sexo" type="string"/>
+            <column name="ie_permite" type="string"/>
+            <column name="procedimento_id" type="numeric"/>
+            
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

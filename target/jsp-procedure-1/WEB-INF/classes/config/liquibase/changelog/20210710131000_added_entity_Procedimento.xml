@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Procedimento.
+    -->
+    <changeSet id="20210710131000-1" author="sschatz">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="procedimento"/>
+            </not>
+        </preConditions>
+        <createTable tableName="procedimento">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="nr_codigo" type="integer">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_procedimento__nr_codigo" />
+            </column>
+            <column name="ds_nome_procedimento" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="20210710131000-1-data" author="sschatz" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/procedimento.csv"
+                  separator=";"
+                  tableName="procedimento">
+            <column name="id" type="numeric"/>
+            <column name="nr_codigo" type="numeric"/>
+            <column name="ds_nome_procedimento" type="string"/>
+           
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

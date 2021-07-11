@@ -5,13 +5,8 @@
     <session-factory>
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.h2.Driver</property>
-<!--        <property name="connection.url">jdbc:h2:mem:test</property>-->
-<!--        <property name="connection.url">jdbc:h2:mem:testdb</property>-->
-       <property name="connection.url">jdbc:h2:tcp://localhost:9093/~/testdb</property>
-        
-<!--        jdbc:h2:tcp://localhost:9092/nio:~/source/db/database/db;AUTO_SERVER=TRUE-->
-<!--        <property name="connection.url">jdbc:h2:tcp://localhost/~/test</property>-->
-        <!--        jdbc:h2:tcp://10.250.31.42:9092/mem:test-->
+       <property name="connection.url">jdbc:h2:tcp://127.0.0.1:9093/~/testdb</property>
+       
         <property name="connection.username">sa</property>
         <property name="connection.password"></property>
         <!-- JDBC connection pool settings ... using built-in test pool -->

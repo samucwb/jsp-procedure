@@ -59,8 +59,7 @@ public class LiquibaseUpdate {
     private static Connection openConnection() throws ClassNotFoundException, SQLException {
         Class.forName ("org.h2.Driver"); 
         // Connection conn1 = DriverManager.getConnection ("jdbc:h2:~/test", "sa","");
-        Connection conn = DriverManager.getConnection("jdbc:h2:tcp://localhost:9093/~/testdb","sa","");
-        //Connection conn = DriverManager.getConnection("jdbc:h2:mem:testdb ","sa","");
+        Connection conn = DriverManager.getConnection("jdbc:h2:tcp://127.0.0.1:9093/~/testdb","sa","");
         
         return conn;
     }
