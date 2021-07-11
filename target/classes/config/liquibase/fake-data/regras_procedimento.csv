@@ -1,0 +1,7 @@
+id;nr_idade;ds_sexo;ie_permite;procedimento_id
+1;10;M;N;1
+2;20;M;S;2
+3;10;F;N;3
+4;10;M;S;3
+5;20;M;S;1
+6;30;F;N;2
