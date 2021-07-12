@@ -21,3 +21,5 @@ para construir o arquivo .war, optando também por debugá-lo.
 
 Você também pode subir a aplicação em seu servidor de aplicação importando o 
 arquivo war que está dentro da pasta package. 
+
+https://www.liquidweb.com/kb/installing-tomcat-9-on-windows/
